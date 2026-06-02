@@ -147,7 +147,7 @@
         <div class="progress-hearts" id="hearts"></div>
         <div class="card">
           <h2 class="text-center">What are we doing? ✨</h2>
-          <p class="text-center text-sm text-gray-500 mt-2 mb-6">(pick 2 or 3 activities)</p>
+          <p class="text-center text-sm text-gray-500 mt-2 mb-6">(pick 1, 2 or 3 activities)</p>
           <div class="food-grid" id="activity-grid"></div>
           <button class="btn-primary w-full" id="btn-next" disabled>let's do this! →</button>
         </div>
@@ -176,8 +176,8 @@
       });
 
       const nxt = wrap.querySelector("#btn-next");
-      nxt.disabled = activities.length < 2;
-      nxt.addEventListener("click", () => { if (activities.length >= 2) { step = 4; render(); } });
+      nxt.disabled = activities.length < 1;
+      nxt.addEventListener("click", () => { if (activities.length >= 1) { step = 4; render(); } });
       return;
     }
 
