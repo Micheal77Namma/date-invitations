@@ -73,7 +73,7 @@
           <button class="btn-secondary" id="btn-no">No</button>
           <button class="btn-primary text-lg" id="btn-yes">Yes ✨</button>
         </div>
-        <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Michael</p>
+        <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Micheal</p>
       `;
       app.appendChild(wrap);
 
@@ -124,7 +124,7 @@
             ${TIMES.map(t => `<option value="${t}"${t===time?" selected":""}>${t}</option>`).join("")}
           </select>
           <button class="btn-primary w-full" id="btn-next" disabled>okay next →</button>
-          <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Michael</p>
+          <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Micheal</p>
         </div>
       `;
       app.appendChild(wrap);
@@ -154,7 +154,7 @@
           <p class="text-center text-sm text-gray-500 mt-2 mb-6">(pick 1, 2 or 3 activities)</p>
           <div class="food-grid" id="activity-grid"></div>
           <button class="btn-primary w-full" id="btn-next" disabled>let's do this! →</button>
-          <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Michael</p>
+          <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Micheal</p>
         </div>
       `;
       app.appendChild(wrap);
@@ -320,7 +320,7 @@
       renderHearts(wrap.querySelector("#hearts"), 5);
 
       wrap.querySelector("#btn-copy").addEventListener("click", async () => {
-        let text = `Hi Michael!\n\nIt's a date! 💖\n\nWhen: ${fmtDate(date)} at ${time}\nWhere: ${cityLabel}`;
+        let text = `Hi Micheal!\n\nIt's a date! 💖\n\nWhen: ${fmtDate(date)} at ${time}\nWhere: ${cityLabel}`;
         if (placeName) {
           text += `\nPlace: ${placeName}`;
         }
