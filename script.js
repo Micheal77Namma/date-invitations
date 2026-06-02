@@ -101,6 +101,7 @@
       noBtn.addEventListener("mouseenter", dodge);
       noBtn.addEventListener("focus", dodge);
       noBtn.addEventListener("click", dodge);
+      noBtn.addEventListener("touchstart", dodge);
       yesBtn.addEventListener("click", () => { step = 2; render(); });
       return;
     }
