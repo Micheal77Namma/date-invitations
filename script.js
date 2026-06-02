@@ -69,7 +69,7 @@
         <div class="heart-bounce">💌</div>
         <h1 style="font-size: 2rem; margin-bottom: 8px; color: #e91e63;" class="wave-text" id="hello-text"></h1>
         <h2 style="font-size: 2.5rem; margin-bottom: 0;">Will you go on a date with me?</h2>
-        <div class="mt-10 flex flex-col items-center gap-4 min-h-140 relative" id="step1-btns">
+        <div class="mt-10 flex items-center justify-center gap-4 min-h-140 relative" style="flex-wrap: wrap;" id="step1-btns">
           <button class="btn-secondary" id="btn-no">No</button>
           <button class="btn-primary text-lg" id="btn-yes">Yes ✨</button>
         </div>
@@ -88,15 +88,16 @@
 
       function dodge() {
         const card = wrap;
-        const w = card.clientWidth;
-        const h = card.clientHeight;
-        const x = Math.random() * (w - 120) - w/2 + 60;
-        const y = Math.random() * (h * 0.5) - h * 0.25;
+        const btnsContainer = wrap.querySelector("#step1-btns");
+        const w = btnsContainer.clientWidth;
+        const h = btnsContainer.clientHeight;
+        const x = Math.random() * (w - 100) - w/2 + 50;
+        const y = Math.random() * (h - 60) - h/2 + 30;
         noPos = { x, y };
         noBtn.style.position = "absolute";
         noBtn.style.left = "calc(50% + " + x + "px)";
-        noBtn.style.top = Math.max(0, y + 60) + "px";
-        noBtn.style.transform = "translateX(-50%)";
+        noBtn.style.top = "calc(50% + " + y + "px)";
+        noBtn.style.transform = "translate(-50%, -50%)";
       }
       noBtn.addEventListener("mouseenter", dodge);
       noBtn.addEventListener("focus", dodge);
