@@ -14,7 +14,7 @@
 
   function genTimes() {
     const out = [];
-    for (let h = 12; h <= 22; h++) {
+    for (let h = 19; h <= 22; h++) {
       for (const m of [0, 30]) {
         const d = new Date();
         d.setHours(h, m, 0, 0);
