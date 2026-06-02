@@ -70,8 +70,8 @@
         <h1 style="font-size: 2rem; margin-bottom: 8px; color: #e91e63;" class="wave-text" id="hello-text"></h1>
         <h2 style="font-size: 2.5rem; margin-bottom: 0;">Will you go on a date with me?</h2>
         <div class="mt-10 flex items-center justify-center gap-4 min-h-140 relative" style="flex-wrap: wrap;" id="step1-btns">
-          <button class="btn-secondary" id="btn-no">No</button>
-          <button class="btn-primary text-lg" id="btn-yes">Yes ✨</button>
+          <button class="btn-secondary" id="btn-no" style="position: static;">No</button>
+          <button class="btn-primary text-lg" id="btn-yes" style="position: static;">Yes ✨</button>
         </div>
         <p style="margin-top: 24px; font-size: 0.875rem; color: #999; font-style: italic;">Made with ❤️ by Micheal</p>
       `;
@@ -88,12 +88,39 @@
       const yesBtn = wrap.querySelector("#btn-yes");
 
       function dodge() {
-        const card = wrap;
         const btnsContainer = wrap.querySelector("#step1-btns");
-        const w = btnsContainer.clientWidth;
-        const h = btnsContainer.clientHeight;
-        const x = Math.random() * (w - 100) - w/2 + 50;
-        const y = Math.random() * (h - 60) - h/2 + 30;
+        const yesBtn = wrap.querySelector("#btn-yes");
+        const yesBtnRect = yesBtn.getBoundingClientRect();
+        const containerRect = btnsContainer.getBoundingClientRect();
+        
+        let x, y;
+        let attempts = 0;
+        const maxAttempts = 20;
+        
+        // Keep trying until we find a position that doesn't overlap with Yes button
+        do {
+          const w = containerRect.width;
+          const h = containerRect.height;
+          x = Math.random() * (w - 100) - w/2 + 50;
+          y = Math.random() * (h - 60) - h/2 + 30;
+          
+          // Calculate where the No button would be
+          const noX = containerRect.left + containerRect.width/2 + x;
+          const noY = containerRect.top + containerRect.height/2 + y;
+          
+          // Check distance from Yes button center
+          const yesCenterX = yesBtnRect.left + yesBtnRect.width/2;
+          const yesCenterY = yesBtnRect.top + yesBtnRect.height/2;
+          const distance = Math.sqrt(Math.pow(noX - yesCenterX, 2) + Math.pow(noY - yesCenterY, 2));
+          
+          // If distance is greater than 120px, position is good
+          if (distance > 120) {
+            break;
+          }
+          
+          attempts++;
+        } while (attempts < maxAttempts);
+        
         noPos = { x, y };
         noBtn.style.position = "absolute";
         noBtn.style.left = "calc(50% + " + x + "px)";
