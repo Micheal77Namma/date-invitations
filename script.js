@@ -78,7 +78,7 @@
 
       // Add wave animation to "Hello"
       const helloText = wrap.querySelector("#hello-text");
-      const text = "Hello Elissa!";
+      const text = "Hello Beautiful!";
       helloText.innerHTML = text.split("").map(char => 
         `<span>${char === " " ? "&nbsp;" : char}</span>`
       ).join("");
