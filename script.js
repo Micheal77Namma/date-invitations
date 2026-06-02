@@ -76,9 +76,9 @@
       `;
       app.appendChild(wrap);
 
-      // Add wave animation to "Hello Nazeem!"
+      // Add wave animation to "Hello"
       const helloText = wrap.querySelector("#hello-text");
-      const text = "Hello Nazeem!";
+      const text = "Hello Neven!";
       helloText.innerHTML = text.split("").map(char => 
         `<span>${char === " " ? "&nbsp;" : char}</span>`
       ).join("");
